@@ -13,6 +13,8 @@ mainWindow = tkinter.Tk()
 mainWindow.title = "Radiants"
 mainWindow.geometry = "640x480"
 
+# Questions
+
 question_list = ["I am the remnants of Honour, What is your name?", "What is your age?",
                  "Choose a race you would like to know more about",
                  "Would you like to know about another race?: ",
@@ -21,20 +23,31 @@ question_list = ["I am the remnants of Honour, What is your name?", "What is you
                  "Would you like to know about another order?: ",
                  "What order are you?: ", ]
 
-player_info = []
+# For player data i.e name, age etc
 
+
+
+# Function to bring up next question in question_list into my_label
 
 def counter():
     global question_list
 
     my_label.config(text=question_list.pop(0))
+    Create_result_box()
 
-def create_my_button():
+
+# Function to create Entry window for player to input there own data
+
+def Create_result_box():
     start.destroy()
-    my_button = tkinter.Button(frame1, text="Yes", command=counter)
-    my_button.grid(row=1, column=0)
+    result = tkinter.Entry(mainWindow)
+    result.grid(row=2, column=0, sticky='sw')
+    result.get()
+    return result
 
 
+
+# Widgets
 
 canvas1 = tkinter.Canvas(mainWindow, width=640, height=480)
 canvas1.grid(row=0, column=0, rowspan=2, sticky="nsew")
@@ -45,14 +58,14 @@ frame1.grid(row=0, column=0, sticky='EW')
 my_label = tkinter.Label(frame1, background="White")
 my_label.grid(row=0, column=0)
 
-start = tkinter.Button(frame1, text="Start", command=create_my_button)
+start = tkinter.Button(frame1, text="Start", command=counter)
 start.grid(row=1, column=0)
 
+my_button = tkinter.Button(frame1, text="Enter", command=counter)
+my_button.grid(row=2, column=1)
 
-resultLabel = tkinter.Label(mainWindow, text="Result")
-resultLabel.grid(row=1, column=2, sticky='nw')
-result = tkinter.Entry(mainWindow)
-result.grid(row=2, column=2, sticky='sw')
+
+
 
 # Start the GUI
 mainWindow.mainloop()
