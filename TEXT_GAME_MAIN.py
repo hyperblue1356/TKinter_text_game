@@ -1,12 +1,8 @@
 # TO DO:
 
-# Fix user race choice
 
-# Change questions to appear as coming from Honour
-# Turn into adventure game??
-# Create further stats
 # Create function so user can check their stats, items, health
-# Create function so questions appear as if they are being typed one letter at a time.
+
 
 import time
 
